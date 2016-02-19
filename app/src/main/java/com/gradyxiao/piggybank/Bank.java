@@ -22,12 +22,19 @@ public class Bank {
         }
     }
 
-    public void setCurrentBalance(int amount){
+    public void setCurrentBalance(double amount){
         this.currentBalance=amount;
     }
 
-    public double getCurrentBanlance(int amount){
+    public void setCurrentBalance(String amount){
+        this.currentBalance = Double.parseDouble(amount);
+    }
+
+    public Double getCurrentBalanceAsDouble(){
         return this.currentBalance;
     }
 
+    public String getCurrentBalanceAsString(){
+        return ""+this.currentBalance;
+    }
 }

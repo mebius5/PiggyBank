@@ -1,7 +1,9 @@
 package com.gradyxiao.piggybank;
 
+import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
@@ -13,6 +15,7 @@ import android.view.MenuItem;
 public class MainActivity extends AppCompatActivity {
 
     private SharedPreferences myPrefs;
+    private SharedPreferences.Editor peditor;
     private Bank bank;
 
     @Override
@@ -22,7 +25,32 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        Context context = getApplicationContext();  // app level storage
+        myPrefs = PreferenceManager.getDefaultSharedPreferences(context);
+        peditor = myPrefs.edit();
+        bank= new Bank();
 
+        peditor.putString("currentBalance", bank.getCurrentBalanceAsString());
+        peditor.commit();
+    }
+
+    @Override
+    protected void onStart(){
+        super.onStart();
+        bank.setCurrentBalance(myPrefs.getString("currentBalance", "0"));
+    }
+
+    @Override
+    protected void onResume(){
+        super.onResume();
+        bank.setCurrentBalance(myPrefs.getString("currentBalance","0"));
+    }
+
+    @Override
+    protected void onPause(){
+        super.onPause();
+        peditor.putString("currentBalance",bank.getCurrentBalanceAsString());
+        peditor.commit();
     }
 
     @Override
