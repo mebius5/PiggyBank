@@ -182,7 +182,7 @@
         <Button
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="Deposit"
+            android:text="@string/deposit_btn"
             android:id="@+id/button2"
             android:layout_weight="1"
             android:background="@color/moneyGreen" />
@@ -190,7 +190,7 @@
         <Button
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="Undo"
+            android:text="@string/undo_btn"
             android:id="@+id/button3"
             android:layout_weight="1"
             android:background="@color/darkBlueBackground" />
@@ -198,7 +198,7 @@
         <Button
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="Withdrawl"
+            android:text="@string/withdraw_btn"
             android:id="@+id/button4"
             android:layout_weight="1"
             android:background="@color/piggyPink" />

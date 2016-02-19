@@ -5,4 +5,7 @@
     <string name="main_title">PIGGY BANK</string>
     <string name="balance_text">$0.00</string>
     <string name="main_button_text">Do Something!</string>
+    <string name="withdraw_btn">WITHDRAW</string>
+    <string name="deposit_btn">DEPOSIT</string>
+    <string name="undo_btn">UNDO</string>
 </resources>
