@@ -4,4 +4,5 @@
     <string name="title_activity_deposit_withdraw">DepositWithdrawActivity</string>
     <string name="main_title">PIGGY BANK</string>
     <string name="balance_text">$0.00</string>
+    <string name="main_button_text">Do Something!</string>
 </resources>

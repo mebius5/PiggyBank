@@ -10,6 +10,33 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="com.gradyxiao.piggybank.DepositWithdrawActivity"
-    tools:showIn="@layout/activity_deposit_withdraw">
+    tools:showIn="@layout/activity_deposit_withdraw"
+    android:background="@color/background">
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/main_title"
+        android:id="@+id/textView2"
+        android:textSize="46sp"
+        android:textColor="@color/piggyPink"
+        android:textStyle="bold"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/balance_text"
+        android:id="@+id/textView3"
+        android:layout_marginTop="30dp"
+        android:textSize="60sp"
+        android:textAlignment="center"
+        android:background="@color/darkBlueBackground"
+        android:textColor="#000000"
+        android:layout_below="@+id/textView2"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 </RelativeLayout>

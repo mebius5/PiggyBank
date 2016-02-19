@@ -11,7 +11,7 @@
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="com.gradyxiao.piggybank.MainActivity"
     tools:showIn="@layout/activity_main"
-    android:background="#ADD9E6">
+    android:background="@color/background">
 
     <TextView
         android:layout_width="wrap_content"
@@ -37,7 +37,7 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:textAlignment="center"
-        android:background="#64B3DF"
+        android:background="@color/darkBlueBackground"
         android:textColor="#000000" />
 
     <ImageView
