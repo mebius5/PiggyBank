@@ -13,6 +13,8 @@ import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
+import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -20,21 +22,26 @@ public class MainActivity extends AppCompatActivity {
     private SharedPreferences.Editor peditor;
     private Bank bank;
     private Button button;
+    private TextView currentBalanceTextView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        System.out.println("onCreate");
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
 
         Context context = getApplicationContext();  // app level storage
         myPrefs = PreferenceManager.getDefaultSharedPreferences(context);
         peditor = myPrefs.edit();
         bank= new Bank();
 
-        peditor.putString("currentBalance", bank.getCurrentBalanceAsString());
-        peditor.commit();
+        if(myPrefs.getString("currentBalance","0").equals("0")){
+            peditor.putString("currentBalance", bank.getCurrentBalanceAsString());
+            peditor.commit();
+        } else{
+            bank.setCurrentBalance(myPrefs.getString("currentBalance","0"));
+        }
 
         button = (Button)findViewById(R.id.button);
         button.setOnClickListener(new View.OnClickListener() {
@@ -43,22 +50,58 @@ public class MainActivity extends AppCompatActivity {
                 startDepositWithdrawActivity(v);
             }
         });
+
+        currentBalanceTextView=(TextView)findViewById(R.id.textView);
+        currentBalanceTextView.setText(bank.getCurrentBalanceAsString());
     }
 
     @Override
     protected void onStart(){
+        System.out.println("onStart");
+
         super.onStart();
         bank.setCurrentBalance(myPrefs.getString("currentBalance", "0"));
+        currentBalanceTextView.setText(bank.getCurrentBalanceAsString());
     }
 
     @Override
     protected void onResume(){
+        System.out.println("onResume");
+
         super.onResume();
-        bank.setCurrentBalance(myPrefs.getString("currentBalance","0"));
+        bank.setCurrentBalance(myPrefs.getString("currentBalance", "0"));
+        currentBalanceTextView.setText(bank.getCurrentBalanceAsString());
+    }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState){
+        System.out.println("onSaveInstanceState");
+
+        outState.putString("currentBalance", bank.getCurrentBalanceAsString());
+
+        peditor.putString("currentBalance", bank.getCurrentBalanceAsString());
+        peditor.commit();
+
+        super.onSaveInstanceState(outState);
+    }
+
+    @Override
+    protected void onRestoreInstanceState(Bundle savedInstanceState){
+        System.out.println("onRestoreInstanceState");
+
+        super.onRestoreInstanceState(savedInstanceState);
+        bank.setCurrentBalance(savedInstanceState.getString("currentBalance", "0"));
+
+        peditor.putString("currentBalance", bank.getCurrentBalanceAsString());
+        peditor.commit();
+
+        currentBalanceTextView.setText(bank.getCurrentBalanceAsString());
     }
 
     @Override
     protected void onPause(){
+        System.out.println("onPause");
+
         super.onPause();
         peditor.putString("currentBalance", bank.getCurrentBalanceAsString());
         peditor.commit();
