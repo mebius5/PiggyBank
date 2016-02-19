@@ -4,10 +4,11 @@ The PiggyBank App was developed by Grady Xiao and Leonardo Fontes as an assignme
 
 <b>Main features</b>:
   <ul>
-    <li>Manage your PiggyBank everyday, the values persist</li>
+    <li>Manage your PiggyBank everyday, the values persists through sessions</li>
     <li>Easily Deposit and Withdrawl by using coins and bills</li>
     <li>Our stack makes it easy to undo if you ever make a mistake!</li>
   </ul>
   
 <b>Why you should try it out?</b>
+
 Teach your kids to manage money! 
