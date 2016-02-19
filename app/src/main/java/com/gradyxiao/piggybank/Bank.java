@@ -26,4 +26,8 @@ public class Bank {
         this.currentBalance=amount;
     }
 
+    public double getCurrentBanlance(int amount){
+        return this.currentBalance;
+    }
+
 }
