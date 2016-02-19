@@ -2,4 +2,6 @@
     <string name="app_name">PiggyBank</string>
     <string name="action_settings">Settings</string>
     <string name="title_activity_deposit_withdraw">DepositWithdrawActivity</string>
+    <string name="main_title">PIGGY BANK</string>
+    <string name="balance_text">$0.00</string>
 </resources>
