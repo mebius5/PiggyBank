@@ -8,4 +8,9 @@
     <string name="withdraw_btn">WITHDRAW</string>
     <string name="deposit_btn">DEPOSIT</string>
     <string name="undo_btn">UNDO</string>
+    <string name="confirm_btn">CONFIRM</string>
+    <string name="cancel_btn">CANCEL</string>
+    <string name="success_deposit">Deposit Success!</string>
+    <string name="success_withdraw">Withdraw Success!</string>
+    <string name="withdrawLessThan0">Can\'t Trick Me: Cannot undo anymore!</string>
 </resources>

@@ -10,7 +10,7 @@ public class Bank {
         this.currentBalance=0;
     }
 
-    public void deposit(double amount) throws BankError{
+    public void deposit(double amount) {
         this.currentBalance=currentBalance+amount;
     }
 
@@ -18,8 +18,22 @@ public class Bank {
         if(currentBalance-amount>=0) {
             this.currentBalance = currentBalance - amount;
         } else{
-            throw new BankError("asdf");
+            throw new BankError("Does not have enough money in balance");
         }
+    }
+
+    public void deposit(String amount){
+        //Note: amount is "$xx.xx"
+        //Offset the "$"
+        amount = amount.substring(1);
+        deposit(Double.parseDouble(amount));
+    }
+
+    public void withdraw(String amount) throws BankError{
+        //Note: amount is "$xx.xx"
+        //Offset the "$"
+        amount = amount.substring(1);
+        withdraw(Double.parseDouble(amount));
     }
 
     public void setCurrentBalance(double amount){
@@ -27,6 +41,8 @@ public class Bank {
     }
 
     public void setCurrentBalance(String amount){
+        //Offset the "$"
+        amount = amount.substring(1);
         this.currentBalance = Double.parseDouble(amount);
     }
 
@@ -35,6 +51,6 @@ public class Bank {
     }
 
     public String getCurrentBalanceAsString(){
-        return ""+this.currentBalance;
+        return "$"+String.format("%.2f",this.currentBalance);
     }
 }

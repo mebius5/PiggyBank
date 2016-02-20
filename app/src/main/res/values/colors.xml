@@ -7,4 +7,5 @@
     <color name="background">#ADD9E6</color>
     <color name="darkBlueBackground">#64B3DF</color>
     <color name="moneyGreen">#A5E78B</color>
+    <color name="black">#000000</color>
 </resources>
