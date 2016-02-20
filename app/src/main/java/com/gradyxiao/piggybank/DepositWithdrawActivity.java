@@ -20,8 +20,6 @@ public class DepositWithdrawActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_deposit_withdraw);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
 
         Context context = getApplicationContext();  // app level storage
         myPrefs = PreferenceManager.getDefaultSharedPreferences(context);
