@@ -18,6 +18,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.Stack;
+import java.util.Random;
 
 public class DepositWithdrawActivity extends AppCompatActivity {
 
@@ -29,6 +30,11 @@ public class DepositWithdrawActivity extends AppCompatActivity {
     private ImageButton cent1,cent5,cent10,cent25;
     private ImageButton dollar1,dollar5,dollar10,dollar20;
     private Button undo, withdraw, deposit;
+    private String[] depositMessages = {"Your parents will be proud!", "A penny saved is a penny earned!", "Watch all that money piling up!"};
+    private String[] withdrawlMessages = {"Don't spend it all on candy!", "Be careful with all that cash!", "Wow, the PiggyBank is lighter!"};
+    int messagePicker;
+    Random rand;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -129,6 +135,9 @@ public class DepositWithdrawActivity extends AppCompatActivity {
                 withdrawClick(v);
             }
         });
+
+        rand = new Random();
+
     }
 
     @Override
@@ -200,7 +209,8 @@ public class DepositWithdrawActivity extends AppCompatActivity {
                         peditor.commit();
 
                         onBackPressed();
-                        Toast toast = Toast.makeText(getApplicationContext(), R.string.success_deposit, Toast.LENGTH_LONG);
+                        messagePicker = rand.nextInt(3);
+                        Toast toast = Toast.makeText(getApplicationContext(), depositMessages[messagePicker], Toast.LENGTH_LONG);
                         toast.show();
                     }})
                 .setNegativeButton(R.string.cancel_btn, null).show();
@@ -222,7 +232,8 @@ public class DepositWithdrawActivity extends AppCompatActivity {
                             peditor.commit();
 
                             onBackPressed();
-                            Toast toast = Toast.makeText(getApplicationContext(), R.string.success_withdraw, Toast.LENGTH_LONG);
+                            messagePicker = rand.nextInt(3);
+                            Toast toast = Toast.makeText(getApplicationContext(), withdrawlMessages[messagePicker], Toast.LENGTH_LONG);
                             toast.show();
                         } catch (BankError e) {
                             Toast toast = Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_SHORT);
